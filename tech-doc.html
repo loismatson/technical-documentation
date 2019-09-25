@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Technical Documentation</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </head>
+  
+  <body>
+    <div>
+      <nav id="navbar">
+        <header>
+          <h1>Getting started with HTML</h1>
+        </header>
+          <a class="nav-link" href="#What_is_HTML?">What is HTML?</a>
+          <a class="nav-link" href="#Anatomy_of_an_HTML_element">Anatomy of an HTML element</a>
+          <a class="nav-link" href="#Attributes">Attributes</a>
+          <a class="nav-link" href="#Anatomy_of_an_HTML_document">Anatomy of an HTML document</a>
+          <a class="nav-link" href="#Entity_references:_Including_special_characters_in_HTML">Entity references: Including special characters in HTML</a>
+      </nav>
+    </div>
+
+    <div>
+      <main id="main-doc">
+        <section id="What_is_HTML?" class="main-section">
+          <header>
+            <h1>What is HTML?</h1>
+          </header>
+            <p>HTML (Hypertext Markup Language) is not a programming language; it is a markup language used to tell your browser how to structure the web pages you visit. It can be as complicated or as simple as the web developer wishes it to be. HTML consists of a series of elements, which you use to enclose, wrap, or mark up different parts of the content to make it appear or act a certain way. The enclosing tags can make a bit of content into a hyperlink to link to another page on the web, italicize words, and so on.  For example, take the following line of content:</p>
+          <div class="code-box">
+            <pre class="line-numbers language-html">
+              <code class="language-html">My cat is very grumpy</code>
+            </pre>
+          </div>
+            <p>If we wanted the line to stand by itself, we could specify that it is a paragraph by enclosing it in a paragraph &nbsp;(&lt;p>) element:</p>
+          <div class="code-box">
+            <pre class="line-numbers language-html">
+              <code class="language-html"><span>&ltp>My cat is very grumpy&lt/p></span></code>
+            </pre>
+          </div>          
+        </section>
+        
+        <section id="Anatomy_of_an_HTML_element" class="main-section">
+          <header>
+            <h1>Anatomy of an HTML element</h1>
+          </header>
+            <p>Let's explore our paragraph element a bit further:</p>
+              <img src="https://res.cloudinary.com/loism/image/upload/v1569119009/grumpy-cat-small_fh5wq7.png" width="400px">
+            <p>The main parts of our element are:
+              <ul>
+                <li>The opening tag: This consists of the name of the element (in this case, p), wrapped in opening and closing angle brackets. This states where the element begins or starts to take effect — in this case where the start of the paragraph is.</li>
+                <li>The closing tag: This is the same as the opening tag, except that it includes a forward slash before the element name. This states where the element ends — in this case where the end of the paragraph is. Failing to include a closing tag is a common beginner error and can lead to strange results.</li>
+                <li>The content: This is the content of the element, which in this case is just text.</li>
+                <li>The element: The opening tag plus the closing tag plus the content equals the element.</li>
+              <ul>
+            </p>
+            <h2>Nesting elements</h2>
+              <p>You can put elements inside other elements too — this is called <strong>nesting</strong>. If we wanted to state that our cat is <strong>very</strong> grumpy, we could wrap the word "very" in a &nbsp;(&lt;strong>) element, which means that the word is to be strongly emphasized:</p>
+            <div class="code-box">
+              <pre class="line-numbers language-html">
+                <code class="language-html"><span>&lt;p>My cat is &lt;strong>very&lt;/strong> grumpy.&lt;/p></span></code>
+              </pre>
+            </div>
+              <p>You do however need to make sure that your elements are properly nested: in the example above, we opened the <code class="inline-code">p</code>element first, then the <code class="inline-code">strong</code>element, therefore we have to close the <code class="inline-code">strong</code>element first, then the <code class="inline-code">p</code>. The following is <span style="color: red">incorrect</span>:</p>
+            <div class="code-box">
+              <pre class="line-numbers language-html">
+                <code class="language-html"><span style="color: red">&lt;p></span>My cat is <span style="color: red">&lt;strong></span>very grumpy.<span style="color: red">&lt;/p>&lt;/strong></span></code>
+              </pre>
+            </div>
+              <p>The elements have to open and close correctly, so they are clearly inside or outside one another. If they overlap like above, then your web browser will try to make a best guess at what you were trying to say, and you may well get unexpected results. So don't do it!</p>
+        </section>
+        
+        <section id="Attributes" class="main-section">
+          <header>
+            <h1>Attributes</h1>
+          </header>
+            <p>Elements can also have attributes, which look like this:</p>
+              <img src="https://res.cloudinary.com/loism/image/upload/v1569119682/grumpy-cat-attribute-small_gwvjqg.png" width="500px">
+            <p>Attributes contain extra information about the element which you don't want to appear in the actual content. In this case, the class attribute allows you to give the element an identifying name that can be later used to target the element with style information and other things.</p>
+            <p>An attribute should have:
+              <ul>
+                <li>A space between it and the element name (or the previous attribute, if the element already has one or more attributes).</li>
+                <li>The attribute name, followed by an equal sign.</li>
+                <li>An attribute value, with opening and closing quote marks wrapped around it.</li>
+              <ul>
+            </p>
+        </section>
+        
+        <section id="Anatomy_of_an_HTML_document" class="main-section">
+          <header>
+            <h1>Anatomy of an HTML document</h1>
+          </header>
+            <p>That wraps up the basics of individual HTML elements, but they aren't very useful on their own. Now we'll look at how individual elements are combined to form an entire HTML page:</p>
+            <div class="code-box">
+              <pre class="line-numbers language-html">
+                <code class="language-html">
+                  &lt;!DOCTYPE html>
+                  &lt;html>
+                    &lt;head>
+                      &lt;meta charset="utf-8">
+                      &lt;title>My test page&lt;/title>
+                    &lt;/head>
+                    &lt;body>
+                      &lt;p>This is my page&lt/p>
+                    &lt;/body>
+                  &lt;/html>
+                </code>
+              </pre>
+            </div>
+            <p>Here we have:
+              <ul>
+                <li><code>&lt;!DOCTYPE html></code>: The doctype. In the mists of time, when HTML was young (about 1991/2), doctypes were meant to act as links to a set of rules that the HTML page had to follow to be considered good HTML, which could mean automatic error checking and other useful things. However, these days no one really cares about them, and they are really just a historical artifact that needs to be included for everything to work right. <code>&lt;!DOCTYPE html></code> is the shortest string of characters that counts as a valid doctype; that's all you really need to know.</li>
+                <li><code>&lt;html>&lt;/html></code>: The <code>&lt;html></code> element. This element wraps all the content on the entire page, and is sometimes known as the root element.</li>
+                <li><code>&lt;head>&lt;/head></code>: The <code>&lt;head></code> element. This element acts as a container for all the stuff you want to include on the HTML page that isn't the content you are showing to your page's viewers. This includes things like keywords and a page description that you want to appear in search results, CSS to style our content, character set declarations, and more. You'll learn more about this in the next article in the series.</li>
+                <li><code>&lt;meta charset="utf-8"></code>: This element sets the character set your document should use to UTF-8, which includes most characters from the vast majority of human written languages. Essentially it can now handle any textual content you might put on it. There is no reason not to set this, and it can help avoid some problems later.</li>
+                <li><code>&lt;title>&lt;/title></code>: The <code>&lt;title></code> element. This sets the title of your page, which is the title that appears in the browser tab the page is loaded in, and is used to describe the page when you bookmark/favorite it.</li>
+                <li><code>&lt;body>&lt;/body></code>: The <code>&lt;body></code> element. This contains all the content that you want to show to web users when they visit your page, whether that's text, images, videos, games, playable audio tracks, or whatever else.</li>
+              </ul>
+            </p>  
+        </section>
+        
+        <section id="Entity_references:_Including_special_characters_in_HTML" class="main-section">
+          <header>
+            <h1>Entity references: Including special characters in HTML</h1>
+          </header>
+            <p>In HTML, the characters <code>&lt;</code>, <code>&gt;</code>, <code>&quot;</code>, <code>&apos;</code> and <code>&amp;</code> are special characters. They are parts of the HTML syntax itself, so how do you include one of these characters in your text, for example if you really want to use an ampersand or less-than sign, and not have it interpreted as code as some browsers may do?</p>
+            <p>We have to use character references — special codes that represent characters, and can be used in these exact circumstances. Each character reference is started with an ampersand (&), and ended by a semicolon (;).</p>
+        </section>
+        
+        <section>
+          <h3>Reference</h3>
+            <p>All documentation taken from <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started">MDN</a></p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
